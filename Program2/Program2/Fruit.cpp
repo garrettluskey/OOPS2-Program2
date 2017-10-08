@@ -1,26 +1,49 @@
 #include "Fruit.h"
-typedef Fruit InfoType;
 
-class LList
+Fruit::Fruit(char *in, char *code)
 {
-public:
-	LList() { list = NULL; }
-	~LList();    // delete all the nodes
-	bool IsEmpty() const;
-	bool Insert(InfoType * x_ptr);
-	bool Delete(const InfoType & x);
-	void Display(ostream & out_stream) const;
 
-private:
-	struct Node
+}
+
+bool Fruit::operator>(Fruit a)
+{
+	for (int i = 0; i < CODE_LEN; i++)
 	{
-		Node(InfoType * x, Node * p = NULL) { infoPtr = x;  next = p; }
-		~Node() { delete infoPtr; }
-		InfoType * infoPtr;
-		Node * next;
-	};
+		if (code[i] > a.code[i]) {
+			return true;
+		}
+		else if (code[i] < a.code[i]) {
+			return false;
+		}
+	}
+}
 
-	Node * list;
-	LList(const LList & copyFrom);                 // Don't allow!
-	LList & operator= (const LList & assignFrom);   // Don't allow!
-};
+bool Fruit::operator==(Fruit a)
+{
+	for (int i = 0; i < CODE_LEN; i++)
+	{
+		if (code[i] != a.code[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+bool Fruit::operator!=(Fruit a)
+{
+	for (int i = 0; i < CODE_LEN; i++)
+	{
+		if (code[i] == a.code[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+ostream & operator<<(ostream & out, Fruit a)
+{
+	char *output = new char[MAX_NAME_LEN];
+	for (int i = 0; i < MAX_NAME_LEN; i++) {
+		*out << *name[i];
+	}
+}

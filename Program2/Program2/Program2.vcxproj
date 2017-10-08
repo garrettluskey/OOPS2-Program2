@@ -157,7 +157,6 @@
     <ClCompile Include="Fruit.cpp" />
     <ClCompile Include="LList.cpp" />
     <ClCompile Include="Prog2.cpp" />
-    <ClCompile Include="Program2.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
