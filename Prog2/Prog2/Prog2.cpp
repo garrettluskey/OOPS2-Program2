@@ -39,7 +39,6 @@ int main()
 			cout << "There are " << input << " types of fruits initially in the list.\n";
 			cout << "They will be read in and inserted in the list in order.\n";
 			for (int i = 0; i < stoi(input); i++) {
-				cout << "Added to list:     ";
 				fruits.insert();
 			}
 		}

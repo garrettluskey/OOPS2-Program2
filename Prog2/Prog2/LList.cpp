@@ -33,7 +33,7 @@ bool LList::Insert(InfoType * x_ptr)
 {
 	Node *P = list;
 	while (P != NULL) {
-		if (*P->infoPtr == *x_ptr) {
+		if (P->infoPtr == x_ptr) {
 			return false;
 		}
 		P = P->next;
@@ -57,7 +57,7 @@ bool LList::Delete(const InfoType &x)
 	Node *Q, *P = list;
 
 	while (P->next != NULL) {
-		if (P->next->infoPtr == &x) {
+		if (*P->next->infoPtr == x) {
 			Q = P->next;
 			P->next = Q->next;
 			delete Q;
@@ -73,7 +73,7 @@ void LList::Display(ostream & out_stream) const
 	Node *P = list;
 
 	while (P != NULL) {
-		out_stream << *P->infoPtr << '\n';
+		out_stream << P->infoPtr << '\n';
 		P = P->next;
 	}
 }

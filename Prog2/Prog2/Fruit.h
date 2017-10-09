@@ -8,10 +8,10 @@ public:
 	Fruit();
 	~Fruit();
 	bool operator>(Fruit a);
-	bool operator==(Fruit a);
+	bool operator==(Fruit a) const;
 	bool operator!=(Fruit a);
 	void operator=(Fruit a);
-	friend ostream &operator<<(ostream &out, Fruit a);
+	friend ostream &operator<<(ostream &out, const Fruit *a);
 	friend istream &operator>>(istream &in, Fruit &a);
 private:
 	enum { CODE_LEN = 4 }; 

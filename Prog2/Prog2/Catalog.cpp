@@ -10,11 +10,11 @@ void Catalog::insert()
 {
 	Fruit *newFruit = make();
 	if (!list.Insert(newFruit)) {
-		cout << "Already in list:   " << *newFruit;
+		cout << "Already in list:   " << newFruit << '\n';
 	}
 	else {
 		cout << "Added to list : ";
-		cout << *newFruit;
+		cout << newFruit << '\n';
 	}
 }
 
@@ -22,7 +22,7 @@ void Catalog::del()
 {
 	cout << "Deleted from list : ";
 	Fruit *newFruit = make();
-	cout << *newFruit << '\n';
+	cout << newFruit << '\n';
 	list.Delete(*newFruit);
 
 }
