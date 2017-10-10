@@ -24,10 +24,10 @@ bool Fruit::operator>(Fruit a)
 	return false;
 }
 
-bool Fruit::operator==(Fruit *a) const
+bool Fruit::operator==(Fruit &a) const
 {
 	for (int i = 0; i < CODE_LEN; i++) {
-		if (this->code[i] != a->code[i]) {
+		if (code[i] != a.code[i]) {
 			return false;
 		}
 	}
@@ -61,7 +61,16 @@ void Fruit::operator=(Fruit const a)
 
 ostream & operator<<(ostream & out, const Fruit *a)
 {
-	out << a->name;
+	bool end = false;
+	for (int i = 0; i < a->MAX_NAME_LEN; i++) {
+		if (a->name[i] != '\0' && !end) {
+			out << a->name[i];
+		}
+		else {
+			end = true;
+			out << ' ';
+		}
+	}
 	out << a->code;
 	return out;
 }

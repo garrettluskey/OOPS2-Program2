@@ -28,7 +28,7 @@ void Catalog::del()
 	cout << "Deleted from list: ";
 	Fruit *newFruit = make();
 	cout << newFruit << '\n';
-	list->Delete(newFruit);
+	list->Delete(*newFruit);
 
 }
 
