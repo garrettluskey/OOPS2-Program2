@@ -46,8 +46,10 @@ int main()
 			cout << "Invalid command!\n";
 		}
 	}
+	fruits.close();
 	delete input;
 	_CrtDumpMemoryLeaks();
-
+	string stop;
+	cin >> stop;
 	return 0;
 }

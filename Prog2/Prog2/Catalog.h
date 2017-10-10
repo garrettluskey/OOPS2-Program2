@@ -4,11 +4,13 @@
 #include "LList.h"
 class Catalog {
 public:
+	Catalog();
 	void print();
 	void insert();
 	void del();
+	void close();
 	Fruit *make();
 private:
-	LList list;
+	LList *list;
 };
 #endif

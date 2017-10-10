@@ -52,7 +52,7 @@ bool LList::Insert(InfoType * x_ptr)
 
 }
 
-bool LList::Delete(const InfoType &x)
+bool LList::Delete(InfoType *x)
 {
 	Node *Q, *P = list;
 
@@ -61,6 +61,7 @@ bool LList::Delete(const InfoType &x)
 			Q = P->next;
 			P->next = Q->next;
 			delete Q;
+			delete x;
 			return true;
 		}
 		P = P->next;

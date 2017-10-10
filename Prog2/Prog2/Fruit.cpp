@@ -3,13 +3,12 @@
 Fruit::Fruit()
 {
 	name = new char[MAX_NAME_LEN];
-	code = new char[CODE_LEN];
+	code[CODE_LEN];
 }
 
 Fruit::~Fruit()
 {
-	delete name;
-	delete code;
+	delete[] name;
 }
 
 bool Fruit::operator>(Fruit a)
@@ -26,10 +25,10 @@ bool Fruit::operator>(Fruit a)
 	return false;
 }
 
-bool Fruit::operator==(Fruit a) const
+bool Fruit::operator==(Fruit *a) const
 {
 	for (int i = 0; i < CODE_LEN; i++) {
-		if (code[i] != a.code[i]) {
+		if (this->code[i] != a->code[i]) {
 			return false;
 		}
 	}
@@ -37,7 +36,7 @@ bool Fruit::operator==(Fruit a) const
 	return true;
 }
 
-bool Fruit::operator!=(Fruit a)
+bool Fruit::operator!=(Fruit const a)
 {
 	if (code == a.code) {
 		return false;
@@ -50,10 +49,9 @@ bool Fruit::operator!=(Fruit a)
 	}
 }
 
-void Fruit::operator=(Fruit a)
+void Fruit::operator=(Fruit const a)
 {
 	name = new char[MAX_NAME_LEN];
-	code = new char[CODE_LEN];
 	for (int i = 0; i < MAX_NAME_LEN; i++) {
 		name[i] = a.name[i];
 	}
