@@ -2,7 +2,6 @@
 
 Fruit::Fruit()
 {
-	name = new char[MAX_NAME_LEN];
 	code[CODE_LEN];
 }
 
@@ -62,23 +61,36 @@ void Fruit::operator=(Fruit const a)
 
 ostream & operator<<(ostream & out, const Fruit *a)
 {
-	for (int i = 0; i < a->MAX_NAME_LEN; i++) {
-		if (a->name[i] != -51 && a->name[i] != '\0') {
-			out << a->name[i];
-		}
-		else {
-			out << " ";
-		}
-	}
-	for (int i = 0; i < a->CODE_LEN; i++) {
-		out << a->code[i];
-	}
+	out << a->name;
+	out << a->code;
 	return out;
 }
 
 istream & operator >> (istream & in, Fruit &a)
 {
-	in >> a.name;
+	char *tmpptr = new char[a.MAX_NAME_LEN + 1];
+	int length = 0;
+	in >> tmpptr;
+	for (int i = 0; i < a.MAX_NAME_LEN + 1; i++) {
+		if (tmpptr[i] != '\0') {
+			length++;
+		}
+		else {
+			length++;
+			break;
+		}
+	}
+	a.name = new char[length];
+	for (int i = 0; i < length; i++) {
+		if (tmpptr[i] != '\0') {
+			a.name[i] = tmpptr[i];
+		}
+		else {
+			a.name[i] = '\0';
+			break;
+		}
+	}
+	delete tmpptr;
 	in >> a.code;
 	return in;
 }
