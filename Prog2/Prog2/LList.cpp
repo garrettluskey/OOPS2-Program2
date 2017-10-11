@@ -13,7 +13,8 @@ struct LList::Node
 LList::~LList()
 {
 	Node *P = list, *Q;
-	while(P->next != NULL) {
+	list = NULL;
+	while(P != NULL) {
 		Q = P;
 		P = P->next;
 		delete Q;
@@ -56,14 +57,17 @@ bool LList::Delete(InfoType &x)
 {
 	Node *Q, *P = list;
 
-	while (P->next != NULL) {
-		if (*P->next->infoPtr == x) {
-			Q = P->next;
-			P->next = Q->next;
+	while (P != NULL) {
+		if (P != list) {
+			Q->next;
+		}
+		if (*P->infoPtr == x) {
+			Q->next = P->next;
 			delete Q;
 			delete &x;
 			return true;
 		}
+		
 		P = P->next;
 	}
 	return false;

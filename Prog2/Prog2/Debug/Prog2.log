@@ -1,4 +1,5 @@
 ﻿  LList.cpp
-c:\homework\oops2-program2\prog2\prog2\llist.cpp(92): warning C4172: returning address of local variable or temporary: returnlist
-  Prog2.vcxproj -> C:\Homework\OOPS2-Program2\Prog2\Debug\Prog2.exe
-  Prog2.vcxproj -> C:\Homework\OOPS2-Program2\Prog2\Debug\Prog2.pdb (Full PDB)
+c:\users\garrett\desktop\oops2-program2\prog2\prog2\llist.cpp(65): warning C4700: uninitialized local variable 'Q' used
+c:\users\garrett\desktop\oops2-program2\prog2\prog2\llist.cpp(96): warning C4172: returning address of local variable or temporary: returnlist
+  Prog2.vcxproj -> C:\Users\Garrett\Desktop\OOPS2-Program2\Prog2\Debug\Prog2.exe
+  Prog2.vcxproj -> C:\Users\Garrett\Desktop\OOPS2-Program2\Prog2\Debug\Prog2.pdb (Full PDB)
