@@ -9,7 +9,7 @@ public:
 	~Fruit(); //deletes name pointer(cstring)
 	
 	bool operator>(Fruit a);	//returns true if the PLU is greater than the object on right otherwise returns false
-	bool operator==(Fruit &a) const;	//if name and code match both fruit classes returns true otherwise false
+	bool operator==(Fruit *a) const;	//if name and code match both fruit classes returns true otherwise false
 	bool operator!=(Fruit const a);	//if code does not match both fruits returns true else false
 	void operator=(Fruit const a);	//sets left hand sides name and code equal to right hand sides name and code
 

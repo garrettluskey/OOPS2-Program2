@@ -42,7 +42,7 @@ int main()
 				fruits.insert();
 			}
 		}
-		else {
+		else if(input[0] != 'S'){
 			cout << "Invalid command!\n";
 		}
 	}

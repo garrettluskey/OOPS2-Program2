@@ -2,12 +2,17 @@
 
 Fruit::Fruit()
 {
+	name = NULL;
 	code[CODE_LEN];
 }
 
 Fruit::~Fruit()
 {
-	delete[] name;
+	if (name != NULL) {
+		delete[] name;
+		name = NULL;
+	}
+	
 }
 
 bool Fruit::operator>(Fruit a)
@@ -24,10 +29,10 @@ bool Fruit::operator>(Fruit a)
 	return false;
 }
 
-bool Fruit::operator==(Fruit &a) const
+bool Fruit::operator==(Fruit *a) const
 {
 	for (int i = 0; i < CODE_LEN; i++) {
-		if (code[i] != a.code[i]) {
+		if (code[i] != a->code[i]) {
 			return false;
 		}
 	}

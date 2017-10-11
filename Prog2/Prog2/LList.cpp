@@ -53,22 +53,30 @@ bool LList::Insert(InfoType * x_ptr)
 
 }
 
-bool LList::Delete(InfoType &x)
+bool LList::Delete(InfoType *x)
 {
-	Node *Q, *P = list;
-
+	Node *Q = list, *P = list;
+	bool firstrun = true;
 	while (P != NULL) {
-		if (P != list) {
-			Q->next;
-		}
 		if (*P->infoPtr == x) {
+			if (firstrun) {
+				list = list->next;
+			}
 			Q->next = P->next;
-			delete Q;
-			delete &x;
+			//delete P->infoPtr;
+			delete P;
+			delete x;
 			return true;
 		}
+		else
+		{
+			if (!firstrun) {
+				Q = Q->next;
+			}
+			firstrun = false;
+			P = P->next;
+		}
 		
-		P = P->next;
 	}
 	return false;
 }
