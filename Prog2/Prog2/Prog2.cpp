@@ -5,7 +5,8 @@ using namespace std;
 #include "LList.h"
 #include "Catalog.h"
 #include <string>
-
+//#define DEBUG
+#ifndef DEBUG
 int main()
 {
 	const int MAX_INPUT_LEN = 34;
@@ -27,12 +28,15 @@ int main()
 		cin >> input;
 		if (input[0] == 'I') {
 			fruits.insert();
+			cout << endl;
 		}
 		else if (input[0] == 'D') {
 			fruits.del();
+			cout << endl;
 		}
 		else if (input[0] == 'P') {
 			fruits.print();
+			cout << endl;
 		}
 		
 		else if(isdigit(input[0])){
@@ -41,15 +45,18 @@ int main()
 			for (int i = 0; i < stoi(input); i++) {
 				fruits.insert();
 			}
+			cout << endl;
 		}
 		else if(input[0] != 'S'){
-			cout << "Invalid command!\n";
+			cout << "Invalid command!" << endl << endl;
 		}
 	}
 	fruits.close();
 	delete input;
+	cout << "Normal Termination of program 2!";
 	_CrtDumpMemoryLeaks();
 	string stop;
 	cin >> stop;
 	return 0;
 }
+#endif

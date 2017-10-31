@@ -10,10 +10,10 @@ class LList
 public:
 	LList() { list = NULL; }
 	~LList();    // delete all the nodes
-	bool IsEmpty() const;
-	bool Insert(InfoType * x_ptr);
-	bool Delete(InfoType *x);
-	void Display(ostream & out_stream) const;
+	bool IsEmpty() const; //is list empty?
+	bool Insert(InfoType * x_ptr); //inserts into list where name is alphabetically ordered
+	bool Delete(InfoType *x); // deletes node from list
+	void Display(ostream & out_stream) const; //prints list
 
 private:
 	struct Node;

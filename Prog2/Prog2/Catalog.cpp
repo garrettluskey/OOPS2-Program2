@@ -9,6 +9,7 @@ void Catalog::print()
 {
 	cout << "Below are the fruits currently in the list\n";
 	list->Display(cout);
+	
 }
 
 void Catalog::insert()
@@ -16,6 +17,7 @@ void Catalog::insert()
 	Fruit *newFruit = make();
 	if (!list->Insert(newFruit)) {
 		cout << "Already in list:   " << newFruit << '\n';
+		delete newFruit;
 	}
 	else {
 		cout << "Added to list:     ";
@@ -25,10 +27,18 @@ void Catalog::insert()
 
 void Catalog::del()
 {
-	cout << "Deleted from list: ";
+	
 	Fruit *newFruit = make();
-	cout << newFruit << '\n';
-	list->Delete(newFruit);
+	
+	if (list->Delete(newFruit)) {
+		cout << "Deleted from list: ";
+		cout << newFruit << '\n';
+	}
+	else {
+		cout << "Wasn't in list:    ";
+		cout << newFruit << '\n';
+	}
+	delete newFruit;
 
 }
 
